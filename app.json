@@ -23,9 +23,10 @@
     "android": {
       "package":"productivityapp.todo",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/applogo.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "icon":"./assets/applogo.png"
     },
     "web": {
       "favicon": "./assets/favicon.png"

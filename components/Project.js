@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Card, Paragraph, Title, Switch } from "react-native-paper";
+import { Card, Paragraph, Title, Switch, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 const Project = ({ project, deleteProject }) => {
@@ -40,7 +40,7 @@ const Project = ({ project, deleteProject }) => {
               onPress={() =>
                 navigation.navigate("ProjectForm", {
                   editing: true,
-                  project: project
+                  project: project,
                 })
               }
             />
@@ -53,6 +53,13 @@ const Project = ({ project, deleteProject }) => {
               value={isCompleted}
               onValueChange={() => setIsCompleted(markCompleted)}
             />
+            <Button style={{fontSize:15}}
+              onPress={() =>
+                navigation.navigate("Tasks", { projectId: project.id })
+              }
+            >
+              View Tasks
+            </Button>
           </View>
         </Card.Content>
       </Card>

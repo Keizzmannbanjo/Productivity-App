@@ -4,6 +4,8 @@ import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { InboxStack, TaskStack, ProjectStack } from "./screens";
+import { FontAwesome } from "@expo/vector-icons";
+import colors from './constants/colors'
 
 const Tab = createBottomTabNavigator();
 
@@ -78,7 +80,15 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={{ headerShown: false }}>
-        <Tab.Screen name="InboxStack" options={{ title: "Inbox" }}>
+        <Tab.Screen name="InboxStack" options={{ title: "Inbox", tabBarIcon: (tabInfo) => {
+            return (
+              <FontAwesome
+                name="database"
+                size={24}
+                color={tabInfo.focused ? colors.blue : "grey"}
+              />
+            );
+          }}}>
           {(props) => (
             <InboxStack
               {...props}
@@ -89,7 +99,15 @@ export default function App() {
         </Tab.Screen>
         <Tab.Screen
           name="TaskStack"
-          options={{ headerShown: false, title: "Tasks" }}
+          options={{ headerShown: false, title: "Tasks", tabBarIcon: (tabInfo) => {
+            return (
+              <FontAwesome
+                name="list"
+                size={24}
+                color={tabInfo.focused ? colors.blue : "grey"}
+              />
+            );
+          }, }}
         >
           {(props) => (
             <TaskStack
@@ -105,7 +123,15 @@ export default function App() {
         </Tab.Screen>
         <Tab.Screen
           name="ProjectStack"
-          options={{ headerShown: false, title: "Projects" }}
+          options={{ headerShown: false, title: "Projects", tabBarIcon: (tabInfo) => {
+            return (
+              <FontAwesome
+                name="list-alt"
+                size={24}
+                color={tabInfo.focused ? colors.blue : "grey"}
+              />
+            );
+          } }}
         >
           {(props) => (
             <ProjectStack

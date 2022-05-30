@@ -40,7 +40,6 @@ const Tasks = ({ tasks, setCompleted, deleteTask, projects }) => {
         </>
       )}
 
-      {/* <Text>Tasks Here</Text> */}
     </View>
   );
 };
